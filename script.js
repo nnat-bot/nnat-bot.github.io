@@ -67,3 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", toggleBackToTop, { passive: true });
   toggleBackToTop(); // Gọi khi load xong
 });
+
+// ========== MOBILE NAV TOGGLE ==========
+function myFunction() {
+  const navLinks = document.querySelector(".nav-links");
+  navLinks.classList.toggle("show");
+}

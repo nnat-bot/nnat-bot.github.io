@@ -41,6 +41,30 @@ body {
   border-bottom: 2px solid #283618;
   padding-bottom: 2px;
 }
+/*Mobile nav bar*/
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none; /* ẩn menu mặc định */
+    flex-direction: column;
+    background-color: #283618;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.show {
+    display: flex; /* hiện menu khi click */
+  }
+
+  .icon {
+    display: block;
+  }
+}
+
+
 /* HERO PART */
 .hero_home {
   background: url('img/ha_long_bay.png') no-repeat center center/cover;
