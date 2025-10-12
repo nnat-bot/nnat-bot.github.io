@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vietnam Destinations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+  <style>
+    /* Layout container that ensures footer behavior */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Open Sans', sans-serif;
+      color: #283618;
+      scroll-behavior: smooth;
+    }
+
+    header { flex: 0 0 auto; }
+    main { flex: 1 0 auto; } /* main sẽ giãn, footer nằm cuối */
+    footer { flex: 0 0 auto; }
+
+    /* Basic typography */
+    p { 
+      margin: 0 0 16px 0;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding: 24px 10px;
+      background-color: #f5f5f5;
+      font-size: 30px;
+      color: #283618;
+    }
+
+    h2 {
+      color: #283618;
+      margin-top: 0;
+    }
+
+    /* Grid of destination cards */
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .destinations-grid a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .destinations-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .destinations-grid a:hover img {
+      transform: scale(1.05);
+    }
+
+    .destinations-grid span {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: #283618;
+      color: #f5f5f5;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 20px;
+      /* min-height removed so footer not pushed away */
+    }
+
+    section:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    /* Figure / caption fixes: ensure caption visible */
+    section figure {
+      max-width: 800px;
+      margin: 20px auto;
+      border-radius: 8px;
+      text-align: center;
+      overflow: visible; /* allow caption to be visible */
+      background: transparent;
+    }
+
+    section figure img {
+      width: 100%;
+      height: auto;     /* important: do not force height:100% */
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+    }
+
+    section figure figcaption {
+      color:#283618;
+      padding-top: 8px;
+      font-size: 15px;
+    }
+
+    /* Navbar/footer minimal styles */
+    .destination-navbar { display:flex; align-items:center; padding:12px 20px; background:#fff; z-index:20; }
+    .nav-left img.destination-logo { height:40px; display:block; }
+    .nav-links { list-style:none; margin:0; padding:0; display:flex; gap:12px; }
+    .nav-links li a { text-decoration:none; color:#283618; padding:6px 8px; }
+    .nav-links li a.active { font-weight:700; }
+
+    .destination-footer {
+      text-align: center;
+      background-color: #283618;
+      color: #f5f5f5;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .destinations-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 800px) {
+      .destinations-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="destination-navbar">
+      <div class="nav-left">
+        <img src="img/logo.png" alt="Vietnam Travel Logo" class="destination-logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html" class="active">Destinations</a></li> <!--currently at Destination Page-->
+        <li><a href="history.html">History</a></li>
+        <li><a href="food&culture.html">Food & Culture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Top Destinations in Central Vietnam</h1>
+
+    <!-- Grid -->
+    <div class="destinations-grid">
+      <a href="#danang"><img src="img/da_nang.jpg" alt="Da Nang"><span>Da Nang</span></a>
+      <a href="#hue"><img src="img/hue.jpg" alt="Hue"><span>Hue</span></a>
+      <a href="#nhatrang"><img src="img/nha_trang.jpg" alt="Nha Trang"><span>Nha Trang</span></a>
+      <a href="#phuyen"><img src="img/phu_yen.jpg" alt="Phu Yen"><span>Phu Yen</span></a>
+      <a href="#quynhon"><img src="img/quy_nhon.jpg" alt="Quy Nhon"><span>Quy Nhon</span></a>
+      <a href="#quangtri"><img src="img/quang_tri.jpg" alt="Quang Tri"><span>Quang Tri</span></a>
+    </div>
+
+    <!-- Sections -->
+    <main class="history-main">
+    <section id="danang">
+      <h2>Da Nang: A Coastal Gem in Central Vietnam</h2>
+      <p>Located along the South China Sea in central Vietnam, Da Nang has emerged as a top travel 
+        destination for international visitors. With its wide range of attractions and activities, 
+        the city offers countless opportunities to create unforgettable memories. From breathtaking 
+        natural scenery to rich cultural experiences, Da Nang promises a journey full of excitement 
+        and discovery. This guide provides essential information to help you explore everything the 
+        city has to offer.</p>
+      
+        <p> Geographically, Da Nang lies between Hanoi and Ho Chi Minh City—764 kilometers south of Hanoi and 964 
+        kilometers north of Ho Chi Minh City. It borders Thua Thien Hue Province to the north, with Hue City just 
+        108 kilometers away. To the west and south, it shares boundaries with Quang Nam Province, while the eastern 
+        side faces the vast South China Sea.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/da_nang_8.jpg" alt="Da Nang" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Ba Na Hill</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/da_nang_1.jpg" alt="Dargon Bridge" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Dragon Bridge. Source: Vinpearl</figcaption>
+      </figure>
+
+      <p>Dragon Bridge: Shaped like a dragon, this iconic structure breathes fire every weekend at 9 PM. Spectators 
+        can enjoy the show from the bridge itself or nearby viewpoints along the Han River.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/da_nang_2.jpg" alt="Da Nang" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Take a Da Nang, Vietnam, vacation in late March (Source: Vinpearl)</figcaption>
+      </figure>
+
+      <p>Marble Mountains
+        One of Da Nang&#39;s most famous landmarks, the Marble Mountains consist of six limestone peaks: Kim Son, 
+        Moc Son, Thuy Son, Tho Son, Duong Hoa Son, and Am Hoa Son. Covering nearly 2 square kilometers, this site 
+        holds both natural beauty and cultural significance. Recognized as a national relic in 1980 and upgraded 
+        to a special national site in 2019, it hosts the annual Quan The Am Festival, which celebrates Vietnamese 
+        spirituality and tradition.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/da_nang_3.jpg" alt="Cu Chi Tunnel 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Visit the large caves hidden away in the Marble Mountains (Source: Vinpearl)</figcaption>
+      </figure>
+
+      <p>Son Tra Peninsula
+        Situated in Son Tra District, this peninsula rises 693 meters above sea level and spans 60 square kilometers. 
+        It is home to a lush forest and rare wildlife, including the red-shanked douc langur, often referred to as the 
+        “Queen of Primates.” The area also features diverse flora and fauna, making it a must-visit for nature lovers.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/da_nang_4.jpg" alt="So tra Peninsula" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Son Tra Peninsula (Source: Vinpearl)</figcaption>
+      </figure>
+
+      <p> My Khe Beach located in Phuoc My Ward, My Khe Beach stretches for about 900 meters and is one of the most popular 
+        beaches in Da Nang. It was ranked among Asia&#39;s top 10 beaches by Tripadvisor. Visitors can enjoy swimming, 
+        sunbathing, and relaxing at nearby resorts and restaurants.</p>
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/da_nang_5.jpg" alt="So tra Peninsula" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>My Khe Beach</figcaption>
+
+      <p> Nam O Reef is made up of two clusters—Ran Ca and Ran Con—separated by a narrow channel known locally as “long thong.” 
+        The area is famous for its moss-covered rocks, especially visible from late January to March during low tide. It&#39;s a 
+        peaceful spot ideal for early morning visits.</p>
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/da_nang_6.jpg" alt="Nam O Reef" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Nam O Reef</figcaption>
+      </figure>
+
+      <p>Hoa Trung Lake located about 20 kilometers from Da Nang&#39;s city center, Hoa Trung Lake is an artificial reservoir that supplies water to nearby 
+        communes. Surrounded by tranquil scenery, it offers a quiet escape from urban life, especially in May when the weather is warm and pleasant.</p>
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/da_nang_7.jpg" alt="Hoa Trung lake" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Hoa Trung lake</figcaption>
+      </figure>
+    </section>
+
+    <section id="hue">
+      <h2>Hue: Vietnam&#39; Historic Capital</h2>
+      <p>Hue is widely recognized as Vietnam&#39;s former imperial capital, a title it held from 1801 until 1945. Although it may not be as ancient as 
+        some might assume, Hue played a crucial role in shaping the country&#39;s cultural identity during the reign of the Nguyen dynasty. 
+        Interestingly, this dynasty is also responsible for the widespread use of the surname “Nguyen,” which is now shared by approximately 
+        39% of the Vietnamese population.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/hue_1.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>The Forbidden City in Hue, Vietnam</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/hue_5.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Dai Noi (the traditional name for the Citadel)</figcaption>
+      </figure>
+
+      <p>Explore the Imperial City: The Imperial City, also known as the Hue Citadel and Forbidden City, stands as the most iconic historical 
+        site in Hue. Covering over 5 square kilometers, it features a vast array of architectural and cultural landmarks, including:
+        <ul>
+          <li>The Meridian Gate</li>
+          <li>Dai Noi (the traditional name for the Citadel)</li>
+          <li>Phung Tien Palace</li>
+          <li>Dien Tho Palace</li>
+          <li>Truong Sanh Palace</li>
+          <li>Kien Trung Palace</li>
+        </ul>
+        <p>This complex offers a deep insight into Vietnam&#39;s imperial past and is a must-visit for history enthusiasts.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/hue_6.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Kien Trung Palace</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/hue_2.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Minh Mang Tomb</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/hue_3.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Tu Duc Tomb</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/hue_4.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Khai Dinh Tomb</figcaption>
+      </figure>
+
+      <p>Stroll Along the “Golden Mile” Situated just south of the Perfume River, the “Golden Mile” refers to the stretch of Le Loi Street between 
+        Ha Noi Street and Chu Van An. It is considered one of the most pleasant areas for walking, especially for first-time visitors. 
+        The nearby streets—Doi Cung, Pham Ngu Lao, and Vo Thi Sau—are equally charming and are closed to traffic on weekend evenings. 
+        This allows pedestrians to enjoy traditional performances and street food in a relaxed, car-free environment. An evening walk along 
+        the Golden Mile offers a wonderful opportunity to experience the vibrant atmosphere of modern Hue.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/hue_7.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Trang tien Bridge</figcaption>
+      </figure>
+    </section>
+
+    <section id="nhatrang">
+      <h2>Nha Trang: Vietnam&#39;s Sunlit Coastal Paradise</h2>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/nha_trang_1.jpg" alt="Nha Tran" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/nha_trang_2.jpg" alt="Nha Tran" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/nha_trang_3.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p>Nha Trang is a lively seaside town renowned for its abundant sunshine—boasting more sunny days annually 
+        than any other location in Vietnam. Its main attraction, Tran Phu Beach, stretches for seven kilometers 
+        along the coast, offering soft white sand, crystal-clear waters, swaying palm trees, and vibrant beachside 
+        bars and seafood eateries.</p>
+
+      <p>One of the city&#39;s most captivating features is its stunning bay, dotted with 19 islands and islets. 
+        Tran Phu Beach is a hub of activity, where visitors relax on sun loungers and enjoy a wide range of water 
+        sports, including parasailing, kite surfing, paddle boarding, and jet skiing. For a quieter experience, 
+        travelers can take a motorbike ride to Long Beach, located just outside the city. This peaceful spot 
+        features shallow turquoise waters and local restaurants serving freshly caught seafood. For a scenic 
+        day trip, head 60 kilometers north to Doc Let Beach, considered one of the most picturesque coastal areas in Vietnam.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/nha_trang_4.jpg" alt="MIneral-rich Mud Baths" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Your heart will be captivated when you wander around some charming beaches on Con Dao Island (Source: Collected)</figcaption>
+      </figure>
+
+      <p>No visit to Nha Trang is complete without experiencing its famous mud baths. The mineral-rich clay is believed to offer therapeutic 
+        benefits, such as improved circulation and skin hydration. After soaking in the warm, sticky mud, visitors can rinse off under cool 
+        waterfalls and unwind in hot mineral pools. For those seeking extra indulgence, treatments like coffee massages and chocolate 
+        body wraps are available. Among the three mud bath facilities in the city, I-Resort is the most popular. It also features a large 
+        water park with slides, pools, and exciting water activities—making it a perfect destination for families and groups.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/nha_trang_5.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Nha Trang 5-star Resort</figcaption>
+      </figure>
+
+      <p>Accommodation in Nha Trang is another highlight. The city offers a wide range of options, from luxurious beachfront resorts to peaceful 
+        retreats and centrally located hotels. The rugged coastline between Cam Ranh Airport and Nha Trang is currently undergoing development, 
+        with ten new resorts already in progress, promising even more choices for future visitors.</p>
+    </section>
+
+    <section id="phuyen">
+      <h2>Phu Yen: Vietnam&#39;s Hidden Gem on the Central Coast</h2>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/phu_yen_1.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p>Phu Yen is a province located in central Vietnam, bordered by a dramatic mountain range to the west and over 200 kilometers of coastline 
+        to the east. Traditionally an agricultural region, Phu Yen has only recently begun to attract attention as a tourist destination. 
+        Its rise in popularity is largely credited to the 2015 Vietnamese film Toi Thay Hoa Vang Tren Co Xanh (Dear Brother), which showcased 
+        the province&#39;s natural beauty.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/phu_yen_2.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Tuy Hoa City and Beach</figcaption>
+      </figure>
+
+      <p>Tuy Hoa, the provincial capital, is situated roughly halfway between the well-known beach cities of Nha Trang and Quy Nhon. Its strategic 
+        location makes it an ideal stop for travelers journeying along Vietnam&#39;s central coast. Despite its accessibility, Tuy Hoa remains 
+        relatively untouched by mass tourism, offering a peaceful atmosphere. The city is thoughtfully designed, with wide, well-maintained streets 
+        forming a neat grid along the river. Tuy Hoa Beach runs along the eastern edge of the city, featuring a scenic promenade and a tranquil shoreline.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/phu_yen_3.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Phu Yen</figcaption>
+      </figure>
+
+      <p>Bai Mon is a secluded beach nestled between rugged mountains. For a truly memorable experience, visitors are encouraged to arrive at dawn and 
+        hike up the winding path to Mui Dien Lighthouse. From this vantage point—Vietnam&#39;s second easternmost tip—the sunrise over the ocean is 
+        breathtaking. A second staircase leads down to Bai Mon Beach, which feels like a hidden paradise surrounded by cliffs and greenery.</p>  
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/phu_yen_4.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Da Dia Reef</figcaption>
+      </figure> 
+
+      <p>While Bai Xep is perhaps the most well-known destination in Phu Yen, Da Dia Reef stands out as its most extraordinary natural wonder. 
+        Formed by volcanic activity, the reef features striking hexagonal basalt columns that resemble a giant honeycomb. These geometric formations 
+        cascade into the sea, creating a surreal landscape reminiscent of a video game. Nearby, a beach offers refreshments and a walking path 
+        that leads to another lighthouse, providing panoramic views of the ocean and the unique rock formations.</p>
+    </section>
+
+    <section id="quynhon">
+      <h2>Quy Nhon: A Coastal Treasure in Central Vietnam</h2>
+      <p>Nestled along Vietnam&#39;s central coastline, Quy Nhon enjoys a stunning natural setting, framed by pristine beaches and verdant mountains. 
+        Its location makes it an ideal destination for travelers seeking both relaxation and cultural exploration.
+        The climate in Quy Nhon is a blend of northern and southern Vietnam&#39;s weather patterns, characterized by a tropical, semi-humid atmosphere. 
+        From January to August, the city experiences hot and dry conditions, with temperatures often reaching the mid-30s Celsius, particularly from May 
+        onward. As autumn approaches, temperatures begin to cool. Rainfall increases during the winter months, peaking in October and November. 
+        Although typhoons occasionally bring strong winds and heavy rain, flooding is rarely reported.</p>
+
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quy_nhon_1.jpg" alt="Quy Nhon 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Coconut trees are an icon of Ben Tre (Source: Collected)</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quy_nhon_2.jpg" alt="Quy Nhon 2" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Tra Su Cajuput Forest (Source: Collected)</figcaption>
+      </figure>
+
+      <p>Located on the Phuong Mai Peninsula, approximately 25 kilometers northeast of Quy Nhon, Ky Co Beach is a tropical paradise. Its powdery sands and 
+        turquoise waters create a serene environment perfect for swimming, snorkeling, or simply relaxing amidst the surrounding cliffs and greenery.
+        Nearby, Eo Gio—meaning “Windy Strait”—offers dramatic coastal scenery and refreshing sea breezes. Towering cliffs plunge into the ocean, 
+        forming a breathtaking landscape that captivates visitors.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quy_nhon_3.jpg" alt="Quy Nhon 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Tra Su Cajuput Forest (Source: Collected)</figcaption>
+      </figure>
+
+      <p>Situated in Nhon Chau Commune and accessible by boat, Cu Lao Xanh Island is a hidden gem known for its untouched beauty. Visitors are welcomed by 
+        emerald waters, quiet beaches, and lush vegetation. Activities such as snorkeling, coastal walks, and peaceful relaxation make this island an ideal 
+        escape from the city.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quy_nhon_4.jpg" alt="Quy Nhon 4" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Tra Su Cajuput Forest (Source: Collected)</figcaption>
+      </figure>
+
+      <p>Located in Phuoc Hiep Commune, about 25 kilometers from Quy Nhon, the Banh It Towers are a remarkable example of Champa architecture. Surrounded by 
+        greenery, these ancient structures offer a glimpse into the region&#39;s historical and spiritual past. They are a must-see for those interested in 
+        Vietnam&#39;s cultural legacy.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quy_nhon_5.jpg" alt="Quy Nhon 5" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Tra Su Cajuput Forest (Source: Collected)</figcaption>
+      </figure>
+    </section>
+
+    <section id="quangtri">
+      <h2>Quang Tri: A Land of History and Natural Beauty</h2>
+      <p>Located in Central Vietnam, Quang Tri is a province known for its resilience and historical significance. Often referred to as a “living museum,” it preserves the heroic legacy of Vietnam’s revolutionary past. Today, Quang Tri has become a compelling destination for travelers interested in history, nature, and local culture. Its reputation as a center for historical tourism is well established, with iconic landmarks such as the Quang Tri Ancient Citadel, Hien Luong Bridge, Ben Hai River, and Vinh Moc Tunnels leaving a lasting impression on visitors.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quang_tri_1.jpg" alt="Quang Tri 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Vinh Moc Tunnels witnessed many important historical events of the country.</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quang_tri_2.jpg" alt="Quang Tri 2" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p>Beyond its historical importance, Quang Tri also boasts a diverse natural landscape. From serene beaches and towering mountains to peaceful villages and rich Central Vietnamese cuisine, the province offers a wide range of experiences. It is also a gateway to some of Vietnam’s most remarkable natural wonders, including the renowned Phong Nha, Ke Bang cave system, recognized by UNESCO as a World Natural Heritage Site.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quang_tri_3.jpg" alt="Quang Tri 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Bich La Ancient Village exudes a simple and ancient beauty, allowing you to feel relaxed when visiting.</figcaption>
+      
+      <p>Quang Tri occupies a unique position between Northern and Southern Vietnam, and during the war, it was famously known as the “land of heroic fire and smoke.” Today, it has transformed into a vibrant destination on the Central Vietnam tourism map, offering a dense network of historical and spiritual sites.
+        The province is often called the “kingdom of caves,” with over 400 caves of varying sizes and a rich ecosystem of forests, rivers, mountains, and coastlines. Phong Nha, Ke Bang National Park stands out as a highlight, attracting nature lovers and adventure seekers alike. Other notable destinations include Nhat Le Beach, Vung Chua,Yen Island, and the tomb of Nguyen Huu Canh.</p>p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quang_tri_4.jpg" alt="Quang Tri 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>If you want to savor the taste of the sea, Cua Tung Beach is a must-visit destination when traveling to Quang Tri.</figcaption>
+      </figure>
+        <p>Quang Tri&#39;s long coastline is home to many beautiful beaches and offers convenient access via road, rail, and waterway. The region&#39;s marine ecosystem is particularly rich, featuring rare seafood such as lobster, tiger prawns, and sea cucumbers. These natural resources not only enhance the local cuisine but also provide visitors with a deeper appreciation of the province&#39;s biodiversity.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quang_tri_5.jpg" alt="Quang Tri 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Quang Tri Ancient Citadel is an unmissable destination that allows you to learn more about history.</figcaption>
+      </figure>        
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/quang_tri_6.jpg" alt="Quang Tri 6" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Vinh Moc Tunnels witnessed many important historical events of the country.</figcaption>
+      </figure>        
+
+    </section>
+  </main>
+
+ <!-- Footer -->
+<footer class="destination-footer">
+  <p><strong>Viet Nam Travel Blogs & Informations</strong></p>
+  <p>Sharing destinations, tips, and insights to make your trip unforgettable.</p>
+</footer>
+
+</body>
+</html>

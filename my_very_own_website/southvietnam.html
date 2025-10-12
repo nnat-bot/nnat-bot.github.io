@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vietnam Destinations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+  <style>
+    /* Layout container that ensures footer behavior */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Open Sans', sans-serif;
+      color: #283618;
+      scroll-behavior: smooth;
+    }
+
+    header { flex: 0 0 auto; }
+    main { flex: 1 0 auto; } /* main sẽ giãn, footer nằm cuối */
+    footer { flex: 0 0 auto; }
+
+    /* Basic typography */
+    p { 
+      margin: 0 0 16px 0;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding: 24px 10px;
+      background-color: #f5f5f5;
+      font-size: 30px;
+      color: #283618;
+    }
+
+    h2 {
+      color: #283618;
+      margin-top: 0;
+    }
+
+    /* Grid of destination cards */
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .destinations-grid a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .destinations-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .destinations-grid a:hover img {
+      transform: scale(1.05);
+    }
+
+    .destinations-grid span {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: #283618;
+      color: #f5f5f5;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 20px;
+      /* min-height removed so footer not pushed away */
+    }
+
+    section:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    /* Figure / caption fixes: ensure caption visible */
+    section figure {
+      max-width: 800px;
+      margin: 20px auto;
+      border-radius: 8px;
+      text-align: center;
+      overflow: visible; /* allow caption to be visible */
+      background: transparent;
+    }
+
+    section figure img {
+      width: 100%;
+      height: auto;     /* important: do not force height:100% */
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+    }
+
+    section figure figcaption {
+      color: #283618;
+      padding-top: 8px;
+      font-size: 15px;
+    }
+
+    /* Navbar/footer minimal styles */
+    .destination-navbar { display:flex; align-items:center; padding:12px 20px; background:#fff; z-index:20; }
+    .nav-left img.destination-logo { height:40px; display:block; }
+    .nav-links { list-style:none; margin:0; padding:0; display:flex; gap:12px; }
+    .nav-links li a { text-decoration:none; color:#283618; padding:6px 8px; }
+    .nav-links li a.active { font-weight:700; }
+
+    .destination-footer {
+      text-align: center;
+      background-color: #283618;
+      color: #f5f5f5;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .destinations-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 800px) {
+      .destinations-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="destination-navbar">
+      <div class="nav-left">
+        <img src="img/logo.png" alt="Vietnam Travel Logo" class="destination-logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html" class="active">Destinations</a></li> <!--currently at Destination Page-->
+        <li><a href="history.html">History</a></li>
+        <li><a href="food&culture.html">Food & Culture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Top Destinations in Southern Vietnam</h1>
+
+    <!-- Grid -->
+    <div class="destinations-grid">
+      <a href="#hcmc"><img src="img/hcmc.jpg" alt="Ho Chi Minh City"><span>Ho Chi Minh City</span></a>
+      <a href="#vungtau"><img src="img/vung_tau_2.jpg" alt="Vung Tau"><span>Vung Tau</span></a>
+      <a href="#condao"><img src="img/con-dao.jpg" alt="Con Dao"><span>Con Dao</span></a>
+      <a href="#phuquoc"><img src="img/phu-quoc.jpg" alt="Phu Quoc"><span>Phu Quoc</span></a>
+      <a href="#mekong"><img src="img/mekong.jpg" alt="Mekong Delta"><span>Mekong Delta</span></a>
+      <a href="#chonoi"><img src="img/chonoi.jpg" alt="Cho Noi"><span>Cho Noi</span></a>
+    </div>
+
+    <!-- Sections -->
+    <main class="history-main">
+    <section id="hcmc">
+      <h2>Ho Chi Minh City: Discover Urban Life and Cultural Heritage</h2>
+      <p> Ho Chi Minh City, once known as Saigon before 1975, is the economic and cultural 
+      heart of Southern Vietnam. It blends modern development with deep historical roots. 
+      The city's role in Vietnam&#39;s wartime past is preserved at sites like the War Remnants 
+      Museum and the Cu Chi Tunnels. Visitors can also admire French colonial architecture 
+      at landmarks such as the Notre Dame Cathedral and the Central Post Office.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/nha-tho-duc-ba.png" alt="Notre Dame Cathedral" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Notre Dame Cathedral. Source: XanhSM</figcaption>
+      </figure>
+
+      <p>A good starting point for exploring the city is Ben Thanh Market, located in 
+        District 1. This area is known for its lively atmosphere, offering local cuisine, 
+        shopping, and vibrant nightlife, especially at rooftop bars. Nguyen Hue Walking Street 
+        is another highlight, often bustling with activity during festivals and public events.
+        For a deeper cultural experience, travelers can visit Cho Lon, also known as Saigon&#39;s Chinatown. 
+        This district reflects the influence of Chinese immigrants who settled there from the 16th to the 
+        20th century. Temples like Thien Hau and Quan De showcase traditional Chinese architecture and 
+        spiritual practices, offering insight into the area's rich cultural blend.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/chua-thien-hau.jpg" alt="Thien Hau Pagoda" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Thien Hau Pagoda. Source: XanhSM</figcaption>
+      </figure>
+
+      <p>Duoc and Ben Dinh. Ben Dinh, located about 12 km southeast of the city, is less crowded but equally interesting. 
+        Entry costs around 35,000 VND for locals and 70,000 VND for foreigners, though guided tours often include the fee.
+        The tour begins with a short presentation in a hut built below ground, showing maps, videos, and wartime items. 
+        Visitors then walk through the jungle, passing old military equipment like artillery and bomb shells. Guides 
+        demonstrate hidden tunnel entrances camouflaged with leaves, and guests can try fitting into one.
+        When entering the tunnels, it&#39;s best to leave your bag behind. The first section is only 20 meters long with an early exit, 
+        while the second stretches 70 meters. The tunnels have been widened for safety, but staying close to the guide helps avoid 
+        discomfort in the narrow space.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/dia-dao-cu-chi-3.png" alt="Cu Chi Tunnel 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Cu Chi Tunnel 3. Source: Thien Cam Travel</figcaption>
+      </figure>
+    </section>
+
+    <section id="vungtau">
+      <h2>Vung Tau: A Relaxing Coastal Escape</h2>
+      <p>The pretty seaside town of Vung Tau is the Vietnamese equivalent of fish and chips and a few days by the sea. 
+        In short, it's where locals go to relax, soak up the sea breeze, and indulge in seafood feasts. 
+        Vung Tau may not have Con Dao's paradisiacal white-sand beaches, but just two hours from Ho Chi Minh City, 
+        it's perfect for a quick getaway. Here is the perfect guide to your Vung Tau holiday.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/vung_tau_3.jpg" alt="Vung Tau" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Vung Tau. Source: Vietnam Travel</figcaption>
+      </figure>
+
+      <p>Dip your toes in cool water and watch the day wake up on Vung Tau&#39;s beautiful Back Beach. 
+        This three kilometer-long strip of sand will entice you to spend a day in the shade of an umbrella, cocktail in hand. 
+        A handful of high-end hotels, restaurants, and beach clubs line Back Beach, and local vendors rent umbrellas on the sand. 
+        When you are hungry, break for a delicious seafood lunch overlooking the water. </p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/vung_tau_1.jpg" alt="Vung Tau" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Vung Tau. Source: Vietnam Travel</figcaption>
+      </figure>
+
+      <p>Vung Tau&#39;s famous Jesus Christ statue was built in 1974, and stands at 32 metres tall. You will
+         need to cover about 800 steps up the headland to reach the feet of the statue, plus another 100 steps 
+         to its shoulders. Prepare for a steep climb, as well as amazing views from the top.</p>
+    </section>
+
+    <section id="condao">
+      <h2>Con Dao: Nature, History, and Conservation</h2>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/con_dao_1.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Con Dao. Source: Vinperal</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/con_dao_2.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Watch the turtles laying eggs on Con Dao Island (Source: Collected)</figcaption>
+      </figure>
+
+      <p>Located about 180 kilometers off Vietnam&#39;s southern coast, Con Dao is a group of 16 untouched islands 
+        known for their natural beauty and wildlife. As part of Ba Ria, Vung Tau Province and now belongs to Ho Chi 
+        Minh province, the islands are home to Vietnam&#39;s largest sea turtle conservation area. From September to 
+        November, visitors can witness turtles laying eggs and baby turtles heading to the sea, especially on Bay 
+        Canh Island.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/con_dao_3.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Your heart will be captivated when you wander around some charming beaches on Con Dao Island (Source: Collected)</figcaption>
+      </figure>
+
+      <p>Island-hopping around Con Dao offers chances to explore coral reefs, enjoy eco-tourism, and discover hidden 
+        beaches. A visit to Con Dao Prison is also essential. This historic site reveals the harsh conditions faced 
+        by political prisoners and reflects the resilience of the Vietnamese people. Other important landmarks include 
+        Hang Duong Cemetery and the Revolutionary Museum, which help visitors understand the island&#39;s past.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/con_dao_5.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Con Dao Prison attracts both domestic and foreign tourists (Source: Collected)</figcaption>
+      </figure>
+    </section>
+
+    <section id="phuquoc">
+      <h2>Phu Quoc: Vietnam&#39;s Pearl Island</h2>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/phu_quoc_1.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Phu Quoc Island is recognized as the largest island in Vietnam (Source: Collected)</figcaption>
+      </figure>
+
+      <p>Phu Quoc, located in southern Vietnam, is the country&#39;s largest island and lies in the Gulf of Thailand. Together with the Tho Chu Archipelago and nearby 
+        islets, it forms a stunning group of tourist destinations in Kien Giang Province. The island is easily accessible by air or sea. Phu Quoc International 
+        Airport offers direct flights from major Vietnamese cities and selected international locations. Alternatively, travelers can take a ferry from Rach Gia 
+        or Ha Tien, with travel times ranging from 1.5 to 2.5 hours.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/phu_quoc_2.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Starfish Bay (Source: Vinpearl)</figcaption>
+      </figure>
+
+      <p>Known as the “Pearl Island,” Phu Quoc boasts a diverse landscape of long sandy beaches, lush forests, and rolling hills. The island is home to 99 mountains 
+        and hills, along with rich biodiversity in its tropical forests. Among its many beaches, Ong Lang Beach, Starfish Beach, and Khem Beach are especially 
+        popular. Ong Lang Beach offers peace and quiet, ideal for relaxation. Starfish Beach is famous for its clear waters and the starfish that dot the shoreline, 
+        making it perfect for snorkeling. Khem Beach impresses visitors with its powdery white sand and turquoise waters, creating a postcard-perfect scene.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/phu_quoc_5.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Phu Quoc Island</figcaption>
+      </figure>
+
+      <p>For families and thrill-seekers, VinWonders Phu Quoc is a must-visit. Located in the Bai Dai area within the Phu Quoc United Center, this massive theme park 
+        spans over 46 hectares and features 12 themed zones. It&#39;s one of the largest amusement parks in Vietnam and Southeast Asia, offering a wide range of 
+        attractions suitable for all ages, especially children.</p>  
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/vinwonder-phu-quoc.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Vinwonder Phu Quoc</figcaption>
+      </figure> 
+
+      <p>Vinpearl Safari Phu Quoc is Vietnam&#39;s first semi-wildlife conservation park, covering an impressive area of 380 hectares. It is home to over 150 animal species, 
+        including rare and exotic creatures such as South African rhinoceroses, Indian tigers, and Kenyan zebras. Visitors can enjoy a variety of engaging animal performances 
+        and educational shows, making it a fun and enriching experience for all ages. The safari offers a unique opportunity to observe wildlife in a natural setting while 
+        promoting conservation and awareness. </p> 
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/vinsafari-phu-quoc.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>VinSafari Phu Quoc</figcaption>
+      </figure>
+
+      <p>Another important site on the island is Phu Quoc Prison, located at 350 Nguyen Van Cu Street in An Thoi Ward. Once used to detain prisoners of the Republic of Vietnam, 
+        the prison was declared a national historical relic in 1995. Today, it serves as a museum where visitors can learn about the harsh conditions endured by Vietnamese 
+        revolutionaries. Exploring the prison offers a deeper understanding of the island&#39;s past and the resilience of its people.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/phu-quoc-prison.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Phu Quoc Prison</figcaption>
+      </figure>
+    </section>
+
+    <section id="mekong">
+      <h2>The Mekong Delta: A Rich Blend of Nature and Culture</h2>
+      <p>When planning a trip to Vietnam, the Mekong Delta is a must-visit destination, known for its stunning landscapes and deep cultural roots. Tourists can explore traditional 
+        villages, visit bustling floating markets, and enjoy authentic local dishes at affordable prices. This region offers a unique glimpse into rural Vietnamese life. </p>
+
+      <p>Geographically, the Mekong Delta is a flat area shaped by sediment from rivers and changes in sea level. Its fertile soil, enriched by alluvial deposits, makes it ideal 
+        for agriculture—especially rice farming. The average elevation ranges from 0.5 to 1.2 meters above sea level, and the region is often affected by seasonal flooding.
+        The climate here is tropical, with high humidity year-round. There are two main seasons: the wet season from May to October, and the dry season from November to April. During 
+        the rainy months, storms and typhoons can cause significant damage. The landscape is dominated by lush green rice fields, and waterways play a central role in daily life. 
+        Boats, floating houses, and markets are common sights along the rivers and canals.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/mekong-delta-1.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Coconut trees are an icon of Ben Tre (Source: Collected)</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/mekong-delta-2.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Tra Su Cajuput Forest (Source: Collected)</figcaption>
+      </figure>
+
+      <p>Culturally, the Mekong Delta is vibrant and diverse. Its cuisine reflects influences from Cambodian and Thai cooking, featuring freshwater fish, tropical fruits, and vegetables. 
+        A key ingredient in many dishes is fermented fish sauce, which adds a rich, savory flavor. The food here is not only delicious but also deeply connected to the region&#39;s traditions and way of life.</p>
+    </section>
+
+    <section id="chonoi">
+      <h2>Floating Markets: The Charm of River Life in Vietnam</h2>
+      <p>No one knows exactly when floating markets first appeared, but they have long been a vibrant part of life in Vietnam&#39;s river regions. These markets bring together hundreds of boats of all sizes from different areas, 
+        creating a unique water-based economy and community.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/cho-noi.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>FLoating Market</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/cho-noi-nga-bay.jpg" alt="Phu Quoc" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Floating Market in Hau Giang</figcaption>
+      </figure>
+
+      <p>What makes floating markets so special is that all trading activities take place on boats. In the past, people used traditional wooden boats like the xuồng ba lá or ghe tam bản, but today, motorized boats such as tắc 
+        ráng are also common. Buyers and tourists arrive by boat, weaving skillfully through the crowded waterways without collisions. The market usually starts early, around 3 or 4 a.m., and winds down by mid-morning. However, 
+        the most lively and colorful time to visit is during the Lunar New Year. The river becomes even more vibrant with blooming flowers and festive fruits. During this season, the cheerful sounds of traditional music and s
+        pring songs echo from the boats, creating a joyful atmosphere and expressing hopes for a prosperous new year.</p>
+    </section>
+  </main>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop" title="Go to top">↑</button>
+ <!-- Footer -->
+<footer class="destination-footer">
+  <p><strong>Viet Nam Travel Blogs & Informations</strong></p>
+  <p>Sharing destinations, tips, and insights to make your trip unforgettable.</p>
+</footer>
+
+</body>
+</html>

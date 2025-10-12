@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vietnam Destinations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+  <style>
+    /* Layout container that ensures footer behavior */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Open Sans', sans-serif;
+      color: #283618;
+      scroll-behavior: smooth;
+    }
+
+    header { flex: 0 0 auto; }
+    main { flex: 1 0 auto; } /* main sẽ giãn, footer nằm cuối */
+    footer { flex: 0 0 auto; }
+
+    /* Basic typography */
+    p { 
+      margin: 0 0 16px 0;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding: 24px 10px;
+      background-color: #f5f5f5;
+      font-size: 30px;
+      color: #283618;
+    }
+
+    h2 {
+      color:#283618;
+      margin-top: 0;
+    }
+
+    /* Grid of destination cards */
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .destinations-grid a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .destinations-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .destinations-grid a:hover img {
+      transform: scale(1.05);
+    }
+
+    .destinations-grid span {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: #283618;
+      color: #f5f5f5;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 20px;
+      /* min-height removed so footer not pushed away */
+    }
+
+    section:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    /* Figure / caption fixes: ensure caption visible */
+    section figure {
+      max-width: 800px;
+      margin: 20px auto;
+      border-radius: 8px;
+      text-align: center;
+      overflow: visible; /* allow caption to be visible */
+      background: transparent;
+    }
+
+    section figure img {
+      width: 100%;
+      height: auto;     /* important: do not force height:100% */
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+    }
+
+    section figure figcaption {
+      color: #283618;
+      padding-top: 8px;
+      font-size: 15px;
+    }
+
+    /* Navbar/footer minimal styles */
+    .destination-navbar { display:flex; align-items:center; padding:12px 20px; background:#fff; z-index:20; }
+    .nav-left img.destination-logo { height:40px; display:block; }
+    .nav-links { list-style:none; margin:0; padding:0; display:flex; gap:12px; }
+    .nav-links li a { text-decoration:none; color:#283618; padding:6px 8px; }
+    .nav-links li a.active { font-weight:700; }
+
+    .destination-footer {
+      text-align: center;
+      background-color: #283618;
+      color: #f5f5f5;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .destinations-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 800px) {
+      .destinations-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="destination-navbar">
+      <div class="nav-left">
+        <img src="img/logo.png" alt="Vietnam Travel Logo" class="destination-logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html" class="active">Destinations</a></li> <!--currently at Destination Page-->
+        <li><a href="history.html">History</a></li>
+        <li><a href="food&culture.html">Food & Culture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Top Destinations in Northern Vietnam</h1>
+
+    <!-- Grid -->
+    <div class="destinations-grid">
+      <a href="#hanoi"><img src="img/ha_noi.jpg" alt="Ha Noi"><span>Ha Noi</span></a>
+      <a href="#ninhbinh"><img src="img/ninh_binh.jpg" alt="Ninh Binh"><span>Ninh Binh</span></a>
+      <a href="#halongbay"><img src="img/ha_long_bay.png" alt="Ha Long Bay"><span>Ha Long Bay</span></a>
+      <a href="#sapa"><img src="img/sapa.jpg" alt="Sapa"><span>Sapa</span></a>
+      <a href="#hagiang"><img src="img/ha_giang.jpg" alt="Ha Giang"><span>Ha Giang</span></a>
+      <a href="#caobang"><img src="img/cao_bang.jpg" alt="Cao bang"><span>Cao Bang</span></a>
+    </div>
+
+    <!-- Sections -->
+  <main class="history-main">
+    <section id="hanoi">
+      <h2>Ha Noi: Vietnam's Capital</h2>
+      <p>LHanoi, Vietnam&#39;s capital, has a history that stretches back over a thousand years. Its Old Quarter, 
+        with narrow streets dating to the 14th century, offers a glimpse into the past. Walking through these 
+        tree-shaded lanes, past old colonial buildings, feels like stepping back in time. But Hanoi isn&#39;t 
+        just about history—it&#39;s also a vibrant modern city. Today, you&#39;ll find stylish cafés, top-rated 
+        restaurants, and contemporary art galleries. At night, the city comes alive with rooftop bars and lively 
+        bia hơi spots. If you&#39;re visiting Hanoi for the first time, there are some must-try experiences that 
+        truly capture the spirit of the city.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_noi_1.jpg" alt="Hoan Miem Lake" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Hoan Kiem Lake</figcaption>
+      </figure>
+
+      <p><strong>The Legend of Hoan Kiem Lake: A Tale of the Magical Sword</strong></p>
+      <p>According to legend, in the 15th century, Vietnam was suffering under the control and exploitation of northern 
+        invaders. Seeing the country&#39;s hardship, the Sea God gave a magical sword to King Le, helping him defeat 
+        the enemy and bring peace to the land. Later, while the king was sailing on a lake, a giant turtle suddenly appeared 
+        and asked him to return the sword to the Sea God. The king respectfully gave the sword back, and the turtle disappeared 
+        beneath the water. From that moment on, the lake—originally called Luc Thuy Lake—was renamed Hoan Kiem Lake, 
+        meaning “Lake of the Returned Sword.” To this day, the story remains a mystery, especially with the presence of turtles 
+        in the lake, which continue to spark curiosity and wonder among locals and visitors alike.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_noi_2.jpg" alt="Ha Noi Old Quarter" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Ha Noi Old Quarter</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_noi_3.jpg" alt="Ha Noi Old Quarter" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Ha Noi Old Quarter: Hang Ma</figcaption>
+      </figure>
+
+      <p><strong>Explore the Old Quarter</strong></p>
+      <p>Located just north and slightly west of Hoàn Kiếm Lake, Hanoi&#39;s Old Quarter is made up of 36 streets, 
+        each known for selling specific items. It&#39;s a great place to walk around and observe the chaotic charm of 
+        motorbikes carrying all sorts of goods. Some of the most famous streets include:
+        <ul>
+          <li>Hang Dau: known for shoes</li>
+          <li>Hang Ma: famous for lanterns</li>
+          <li>Hang Bac: silver jewelry</li>
+          <li>Hang Vai: bamboo products</li>
+          <li>Hang Duong: sweets and sugar</li>
+          <li>Lan Ong: traditional medicine</li>
+          <li>Hang Gai: silk products</li>
+        </ul>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_noi_5.jpg" alt="Train Street" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>HaNoi Train Street</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_noi_6.jpg" alt="Train Street" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>HaNoi Train Street: Coffee Shop</figcaption>
+      </figure>
+
+      <p><strong>Visit Hanoi&#39;s Train Street</strong></p>
+      <p>There are two locations in Hanoi where trains pass extremely close to cafés. The most popular one is just south of the 
+        Old Quarter, near Thống Nhất Park. I visited a café called Hanoi 1990s, which I booked in advance via WhatsApp. 
+        Although many people just walk in, I preferred to reserve ahead. The entrance is easy to find—just go to Ngõ 
+        222 Đ. Lê Duẩn, which crosses the tracks near the café. When the train comes, the staff quickly clears the tables, 
+        and guests are asked to sit close to the wall for safety. It&#39;s a thrilling experience. Drinks cost around 60,000 VND, 
+        and if you don&#39;t order anything, there&#39;s a minimum charge of 40,000 VND to sit.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_noi_7.jpg" alt="Ho Chi Minh Mausoleum" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Ho Chi Minh Mausoleum</figcaption>
+      </figure>
+
+      <p><strong>Ho Chi Minh Mausoleum and Surroundings</strong></p>
+      <p>Behind the Ho Chi Minh Museum is a large green area with several attractions related to the former leader. The most 
+        famous is the Ho Chi Minh Mausoleum, where visitors can view his preserved body. The building is especially beautiful 
+        when lit up at night. Nearby, you&#39;ll find Ho Chi Minh&#39;s Stilt House and the One Pillar Pagoda, a wooden structure 
+        built on a single concrete pillar shaped like a lotus flower. Originally built in 1054, it was destroyed by the French 
+        in 1954 and later rebuilt.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_noi_8.jpg" alt="Vietnam Museum of Ethnology" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <figcaption>Vietnam Museum</figcaption>
+      </figure>
+
+      <p><strong>Vietnam Museum of Ethnology</strong></p>
+      <p>This museum explores the 54 ethnic groups that make up Vietnam. One of the highlights is the outdoor area, which features full-scale 
+        traditional houses. The most impressive is the Bahnar communal house, which stands 19 meters tall and was my personal favorite.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_noi_9.jpg" alt="Nam O Reef" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>St. Joseph&#39;s Cathedral (Vietnamese: Nhà thờ Lớn Hà Nội)</figcaption>
+      </figure>
+
+      <p><strong>St. Joseph Cathedral</strong></p>
+      <p>Constructed in 1886, this neo-Gothic cathedral is a striking reminder of the colonial era. Its tall bell towers are a key feature. 
+        The main entrance is only open during mass, but visitors can enter through the side door at other times. The street beside the 
+        cathedral is lined with charming cafés, including the taproom of Pasteur Street Brewing, my favorite Vietnamese craft beer brand.</p>
+      </section>
+
+    <section id="ninhbinh">
+      <h2>Discover Ninh Binh: A Day of Nature and History</h2>
+      <p>Just two hours south of Hanoi, Ninh Binh stands out as one of Vietnam&#39;s most stunning destinations. With peaceful boat rides 
+        and green landscapes, the region also boasts rich cultural heritage and is recognized as a UNESCO World Heritage Site. 
+        If you only have one day, this itinerary will help you make the most of your visit.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ninh_binh_6.jpg" alt="ancient history in Hoa Lư" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Ninh Binh: ancient history in Hoa Lư</figcaption>
+      </figure>
+
+      <p><strong>Start at Hoa Lư Ancient Capital</strong></p>
+      <p>Begin your journey at Hoa Lư, the former capital of Vietnam&#39;s first feudal dynasty. This historic site witnessed dramatic 
+        events, including royal reigns, political intrigue, and the eventual move of the capital to Hanoi after 42 years. 
+        Surrounded by limestone mountains and natural moats, Hoa Lư offers a peaceful yet powerful atmosphere. Take time to explore its 
+        ancient temples, pagodas, and historical relics while your guide shares stories about the area&#39;s past and local traditions.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ninh_binh_7.jpg" alt="Hoa Lu" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Hoa Lu</figcaption>
+      </figure>
+
+      <p><strong>Cruise Through Tràng An Scenic Landscape</strong></p>
+      <p>Next, head to the Tràng An Scenic Landscape Complex, where you&#39;ll board a small rowboat for a breathtaking ride through 
+        towering karst formations covered in lush jungle. As you glide along the water, your guide will tell you about the prehistoric 
+        communities that once lived in these mountains and the farmers who still work the land today.
+        Be prepared to duck as the boat passes through low caves and grottoes. Along the way, you&#39;ll see peaceful pagodas nestled by 
+        the river and even visit a filming location from Kong: Skull Island, which you can explore on foot.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ninh_binh_8.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ninh_binh_9.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ninh_binh_10.jpg" alt="Hue" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+    </section>
+
+    <section id="halongbay">
+      <h2>Explore Ha Long City and Ha Long Bay: Vietnam&#39;s Northern Gem</h2>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_long_1.jpg" alt="Nha Tran" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p>Located about 180 kilometers from Hanoi, Ha Long City is a top-tier city in Quang Ninh Province and is widely known 
+        as a tourism hotspot in northern Vietnam. Its strategic location and natural beauty attract millions of visitors 
+        from both within the country and abroad every year. The highlight of the region is Ha Long Bay, a breathtaking 
+        natural wonder covering 1,553 square kilometers. The bay features nearly 2,000 limestone islands of various shapes 
+        and sizes. Recognized multiple times by UNESCO, Ha Long Bay is considered a must-see destination for any traveler. 
+        Alongside its stunning scenery, Ha Long boasts a modern transportation system and well-developed infrastructure, 
+        making it an ideal place for leisure, shopping, dining, and entertainment.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_long_2.jpg" alt="Ha Long Coral Reef" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p><strong>Dive into the Coral Reefs</strong></p>
+      <p>While most visitors focus on the bay&#39;s surface beauty, the underwater world is equally fascinating. Ha Long Bay is 
+        home to over 140 coral species, including rare types. These reefs thrive around islands like Cong Do, where strict regulations 
+        and natural isolation help protect marine life. Join a diving tour to observe sea creatures such as starfish, sea horses, 
+        and turtles in crystal-clear waters. You can also explore underwater caves and grottos. Whether you're a beginner or an experienced 
+        diver, there are options for everyone—including snorkeling trips in deeper waters.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_long_3.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Luxury Cruise to Explore Ha Long bay</figcaption>
+      </figure>
+
+      <p><strong>Cruise Through the Bay</strong></p>
+      <p>The best way to experience Ha Long Bay is by boat. You can choose between traditional junk boats for a slow, scenic ride or modern 
+        yachts for quicker island-hopping. While half-day or full-day cruises are available, a multi-day trip offers a more immersive 
+        experience.
+        Spend two or three days aboard a cruise ship, enjoying meals, cocktails, and guided tours. Some cruises offer spa services, cooking classes, yoga at sunrise, and even night-time squid fishing. Sleeping on the boat and stargazing from the deck is a unique and unforgettable experience.
+        Don&#39;t miss the chance to kayak around the limestone karsts. The calm waters make it safe and enjoyable to paddle through caves, 
+        around floating villages, and between islands. Take a swim in the bay before returning to the boat for sunset views and dinner.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_long_4.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Famous Cave in Ha Long Bay</figcaption>
+      </figure>
+      
+      <p><strong>Explore the Caves: Sung Sot, Me Cung, and Thien Cung</strong></p>
+      <p>Ha Long Bay is home to many caves, each with its own story. Among the most famous are:
+        Sung Sot Cave: Known for its massive size and unusual rock formations. The cave covers 10,000 square meters and features two chambers 
+        filled with stalactites and stalagmites shaped like animals and warriors. It&#39;s accessible via a steep hike, but the views are worth the effort.
+        Me Cung Cave: The oldest and narrowest cave in the bay. Archaeologists have found fossils over 10,000 years old at its entrance. Inside, 
+        you&#39;ll find a maze of tunnels and chambers decorated with natural rock formations.
+        Thien Cung Cave: Often called the most beautiful cave. According to legend, it was the wedding venue of the Dragon King and his bride, May. 
+        Today, the cave is lit with colorful lights that enhance its magical atmosphere. Sunlight streams through ceiling openings, creating a dramatic 
+        effect. The exit offers a panoramic view of Ha Long Bay.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_long_5.jpg" alt="Con Dao" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Monkey Island</figcaption>
+      </figure>
+
+      <p><strong>Visit Monkey Island</strong></p>
+      <p>Just one kilometer from Cat Ba Town, Monkey Island is only accessible by boat. Originally called Cat Dua Island due to the wild pineapples growing along 
+        its shores, it&#39;s now named after the playful monkeys that live there. The island is perfect for both relaxation and adventure. You can sunbathe on 
+        the white sand, swim or snorkel in the clear water, kayak around the coast, or hike along scenic trails.</p>
+    </section>
+
+    <section id="sapa">
+      <h2>Welcome to Sapa, Vietnam: A Hidden Gem in the Mountains</h2>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/sapa_1.jpg" alt="Sapa" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p>Nestled in the northern highlands of Vietnam, Sapa is a breathtaking destination known for its dramatic landscapes and rich cultural heritage. 
+        With misty valleys, terraced rice fields, and towering peaks, Sapa offers both natural beauty and a deep connection to the traditions of ethnic minority communities. 
+        Let&#39;s explore what makes this mountain town so magical.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/sapa_2.jpg" alt="Sapa" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p>Sapa is located in northwestern Vietnam, near the border with China. It lies within the Hoang Lien Son mountain range, home to Fansipan, the highest peak in Indochina.
+        The town experiences four distinct seasons. Summers are warm and humid, while winters can be cold and dry, sometimes even bringing snow. 
+        Spring and autumn are the best times to visit, with mild temperatures and vibrant scenery—ideal for trekking, hiking, and sightseeing.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/sapa_3.jpg" alt="Sapa" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p><strong>O Quy Ho Pass</strong></p>
+      <p>Connecting Lai Chau and Lao Cai provinces, O Quy Ho Pass is one of Vietnam&#39;s four great mountain passes. It reaches over 2,000 
+        meters above sea level and offers spectacular views of forests, rivers, and rolling hills. It&#39;s a must-see for nature lovers and photographers.</p>  
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/sapa_4.jpg" alt="Sapa" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure> 
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/sapa_5.jpg" alt="Sapa" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure> 
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/sapa_6.jpg" alt="Sapa" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure> 
+
+      <p><strong>Top Things to Do in Sapa</strong></p>
+      <p><strong>Summit Mount Fansipan</strong>: Take a 15-minute cable car ride that climbs 3,143 meters to the summit of Mount Fansipan, known as the “Roof of Indochina.” 
+        Explore the pagoda complex and enjoy panoramic views from the top.</p>
+      <p><strong>Visit an Ethnic Minority Market</strong>: Every Sunday, Bac Ha Market comes alive with traders from ethnic groups like the Dzao, Han, Xa Fang, Tay, and Thai. 
+        Dressed in traditional clothing, they bring a burst of color and energy to the market, offering a unique cultural experience.</p>
+      <p><strong>Go Trekking</strong>:Sapa is famous for its trekking routes. Villages like Cat Cat and Ta Phin can be explored independently, while guided overnight treks 
+        take you through rice terraces, waterfalls, and local communities.</p>
+      <p><strong>Stay in a Mountain Lodge</strong>: Escape the busy town and stay in a mountaintop lodge or homestay. These accommodations offer simple comfort and a chance 
+        to interact with local farmers and enjoy peaceful surroundings.</p>
+      <p><strong>Get Active</strong>: Try mountain biking to explore remote areas of Sapa. If you're up for a challenge, join the Vietnam Mountain Marathon, which attracts 
+        thousands of runners each year to race along trails ranging from 10 to 100 kilometers.</p>
+    </section>
+
+    <section id="hagiang">
+      <h2>Ha Giang, Vietnam: Where Nature Meets Culture</h2>
+      <p>Located in northern Vietnam, Ha Giang is a dream destination for adventurous travelers. With dramatic mountain landscapes, winding passes, and vibrant ethnic villages, 
+        this province offers a unique blend of natural beauty and cultural richness. Home to 19 ethnic groups, Ha Giang is a place where tradition and nature coexist in harmony, 
+        leaving a lasting impression on all who visit.</p>
+
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_giang_01.jpg" alt="Ha Giang 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Ha Giang mountains boast breathtaking vistas that will leave visitors in awe of their natural beauty (Source: Collected)</figcaption>
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_giang_02.jpg" alt="Ha Giang 2" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Ha Giang is nestled amidst the mountains in Northern Vietnam (Source: Collected)</figcaption>
+      </figure>
+
+      <p><strong>Ma Pi Leng Pass</strong></p>
+      <p>One of the most iconic spots in Ha Giang is the Ma Pi Leng Pass, a rugged mountain road stretching around 20 kilometers. It connects Ha Giang City, Dong Van, and Meo Vac districts. 
+        The name “Ma Pi Leng” comes from Mandarin, meaning “horse&#39;s nose,” and reflects the steep, narrow shape of the pass. At its highest point, it reaches 2,000 meters, offering 
+        breathtaking views of cliffs and the deep Nho Que River valley below.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_giang_03.jpg" alt="Ha Giang 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p><strong>Dong Van Karst Plateau Geopark</strong></p>
+      <p>Covering over 2,356 square kilometers, the Dong Van Karst Plateau Geopark is a UNESCO-recognized site filled with rocky mountains, valleys, and diverse ecosystems. It&#39;s also home to 
+        many ethnic communities, adding cultural depth to the region. Fossils found here date back 500 to 600 million years, making it a fascinating destination for both nature lovers and history enthusiasts. 
+        Don&#39;t miss the Lung Cu Flag Tower, a symbol of national pride and a great viewpoint.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_giang_04.jpg" alt="Ha Giang 4" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p><strong>Nho Que River</strong></p>
+      <p>Flowing beneath Ma Pi Leng Pass, the Nho Que River is one of Vietnam&#39;s most scenic waterways. From above, it looks like a green ribbon winding through the mountains. A boat tour along the river lets 
+        you admire its beauty up close and explore Tu San Canyon, one of the deepest gorges in Southeast Asia. It&#39;s a perfect spot for photography and peaceful sightseeing.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/ha_giang_05.jpg" alt="Ha Giang 5" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <p><strong>Dong Van Market</strong></p>
+      <p>Held every Sunday morning, Dong Van Market is a lively gathering place for locals. It&#39;s more than just a market—it&#39;s a cultural event. People from different ethnic groups come dressed in traditional 
+        clothing to trade goods, socialize, and enjoy local food. On the 14th, 15th, and 16th days of the lunar month, the market becomes even more festive, with folk games and cultural performances.</p>
+
+    </section>
+
+    <section id="caobang">
+      <h2>Cao Bang, Vietnam: A Land of Natural Wonders and Cultural Richness</h2>
+      <p>Located in a remote part of northern Vietnam, Cao Bang Province is a treasure trove of natural beauty and cultural heritage. With five major rivers and 47 lakes, water plays a central role in shaping both the 
+        landscape and the lives of local people. Much of the province is part of a UNESCO Global Geopark, making it a top destination for adventure seekers and nature lovers.</p>
+      
+        <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/cao_bang.jpg" alt="Cao Bang" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <figcaption>Vinh Moc Tunnels witnessed many important historical events of the country.</figcaption>
+      </figure>
+
+      <p><strong>Bản Giốc Waterfall</strong></p>
+      <p>Situated on the border between Vietnam and China, Bản Giốc Waterfall is the fourth largest waterfall in the world, stretching 300 meters wide. Surrounded by lush jungle and dramatic valleys, 
+        the falls offer a truly breathtaking experience. Tip: Visit during the dry season (October to April) for the best views. Around 10:30 AM to 1:00 PM, water is released from the Quây Sơn River dam, creating a powerful and picturesque flow.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/cao_bang_4.jpg" alt="Hang Pac Po" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/cao_bang_5.jpg" alt="Hang Pac Po" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+      
+      <p>According to the TayNung ethnic language, Pac Bo means “watershed”. This is the place chosen by Uncle Ho to be the base of the Vietnamese revolutionary leadership and is the place with an important mark in the resistance war against the French and the Americans of the Vietnamese people.
+        After 30 years of searching for a way to save the country and work abroad, on January 28, 1941, leader Nguyen Ai Quoc returned to the country through milestone 108.
+        He chose Pac Bo as his residence and revolutionary activity for many years from 1941 to 1945. Here, leader Nguyen Ai Quoc opened training courses on politics and military for revolution in Cao Bang. Also he translated the history of the Communist Party of the Soviet Union into Vietnamese, 
+        compiled and published the documents. Such as the revolutionary history of our country, Tonkinese geography, Cao Bang geography. Special; Military training materials of guerrilla tactics. 
+        Such as Russian Guerrilla experience, Chinese Guerrilla experience… With special values of history, culture and science. Pac Bo historical vestige has become one of the most important 
+        relics of the country about President Ho Chi Minh and the Party Central Committee.</p>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/cao_bang_1.jpg" alt="Hang Pac Po" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/cao_bang_2.jpg" alt="Hang Pac Po" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+
+      <figure style="margin-bottom: 20px; text-align: center;">
+        <img src="img/cao_bang_3.jpg" alt="Hang Pac Po" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </figure>
+    </section>
+  </main>
+
+ <!-- Footer -->
+<footer class="destination-footer">
+  <p><strong>Viet Nam Travel Blogs & Informations</strong></p>
+  <p>Sharing destinations, tips, and insights to make your trip unforgettable.</p>
+</footer>
+
+</body>
+</html>
