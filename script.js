@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ========== MOBILE NAV TOGGLE ==========
-function myFunction() {
-  const navLinks = document.querySelector(".nav-links");
-  navLinks.classList.toggle("show");
-}
+  function toggleMenu() {
+    const menu = document.getElementById("navLinks");
+    menu.classList.toggle("active");
+  }

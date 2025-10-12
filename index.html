@@ -11,27 +11,31 @@
   <script src="script.js" defer></script>
 </head>
 
-<!--BODY-->  
-<body class="home-body">
+
   <!--THE UPPER BAR, THE NAVIGATE BAR IS HERE -->
   <header>
-    <nav class="home-navbar">
-      <div class="nav-left">
-        <img src="img/logo.png" alt="Vietnam Travel Logo" class="logo">
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html"class="active">Home</a></li> <!--currently at Home Page-->
-        <li><a href="destinations.html">Destinations</a></li>
-        <li><a href="history.html">History</a></li>
-        <li><a href="food&culture.html">Food & Culture</a></li>
-      </ul>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>
-    </nav>
-  </header>
+    <nav class="home-navbar" id="homeNavbar">
+  <div class="nav-left">
+    <img src="img/logo.png" alt="Vietnam Travel Logo" class="logo">
+  </div>
   
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="history.html">History</a></li>
+    <li><a href="food&culture.html">Food & Culture</a></li>
+  </ul>
+  
+  <!-- icon menu -->
+  <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+</nav>
+  </header>
+
+
 <!-- HERO WITH MAIN PICTURE, HARDCODE -->
 <section class="hero_home"></section>
-
+  <!--BODY-->  
+<body class="home-body">
 <!-- INTRODUCTION SECTION WITH EDITABLE TEXT -->
 <section class="home-intro-text">
   <h1>EXPERIENCE THE ALLURE OF VIETNAM</h1>
